@@ -9,7 +9,11 @@ if (song && musicToggle && musicLabel && musicStatus) {
     musicToggle.classList.toggle('is-playing', playing);
     musicToggle.setAttribute('aria-pressed', String(playing));
     musicToggle.setAttribute('aria-label', playing ? 'Pausar música' : 'Reproducir música');
-    musicLabel.textContent = playing ? 'Pausar este instante' : 'Escuchar contigo';
+    musicLabel.textContent = playing ? 'Pausar música' : 'Reproducir música';
+    document.querySelector('.music-symbol').textContent = playing ? 'Ⅱ' : '▶';
+    document.querySelector('#music-hint').textContent = playing
+      ? 'La música ya acompaña nuestra historia.'
+      : 'Pulsa aquí para escuchar ↓';
   };
   musicToggle.addEventListener('click', async () => {
     musicStatus.textContent = '';
